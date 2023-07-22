@@ -1,0 +1,67 @@
+body {
+    background-color: #fafafa;
+    /* background-image: url("./images/food.jpg");
+    background-size:contain;
+    background-position:top; */
+    object-fit: cover;
+    background-size: cover;
+
+  }
+  .login{
+    display: flex;
+    margin: 5px;
+    justify-content: center;
+  }
+  .main_signuppage {
+    display: flex;
+    margin: 20px;
+  }
+  .rightcomponent_signuppage {
+    width: 400px;
+    height: 500px;
+    border: 1px solid grey;
+    margin-top: 20px;
+    text-align: center;
+    background-color: white;
+  }
+.title{
+    font-weight: bold;
+    color: #8e8e8e;
+}
+.title_welc{
+    margin-top: 35px;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #8e8e8e;
+  }
+  .inpgrp_signup{
+    margin: 40px;
+  }
+  .inp {
+    width: 280px;
+    height: 35px;
+    margin: 15px 10px 5px 10px;
+    border: 1px solid grey;
+    background-color: #fafafa;
+    padding-left: 10px;
+    border-radius: 5px;
+  }
+  .btn_sinup{
+    width: 280px;
+    height: 35px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    border: 1px solid #0385f6;
+    border-radius: 5px;
+    background-color: #0385f6;
+    color: white;
+  }
+  .or{
+    font-size: bold;
+  }
+  .signup_link{
+    font-size: bold;
+    text-decoration: none;
+    margin-left: 10px;
+  }
