@@ -1,6 +1,15 @@
 # capstone
 food-ordering-web-application
 
+# Database Schema
+https://docs.google.com/document/d/1khjWXvSF_4L2HPNu936JVVR_3LQRiSXXmhNvPL2WZuQ/edit
+
+# Approach to Problem Statement: Food Ordering Web Application
+https://docs.google.com/document/d/1OFEDG1eIwX4FJoeWXnSFS1OXAmY_E-zQVWn58JoC2mc/edit
+
+# Food Ordering Web Application Walkthrough
+https://docs.google.com/document/d/1mvJ4EzqjCbsSLpob3qC1ZksqnlvGOHtXnWPalCrwYyo/edit
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
