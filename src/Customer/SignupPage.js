@@ -44,6 +44,11 @@ function CustomerSignup() {
 
     return (
         <Container>
+        <div className='hero'>
+          <img 
+              src='https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png'
+              className='background-image'
+              alt="bgImage" />
             <div className="login">
                 <div className="main_signuppage">
                     <div className="rightcomponent_signuppage">
@@ -62,10 +67,11 @@ function CustomerSignup() {
                         <p className="or">OR</p>
                         <br />
 
-                        <p>Already a customer!<Link className="login_link" to="/customerLogin">Login</Link></p>
+                        <p>Already a customer!<Link className="login_link" to="/login">Login</Link></p>
                     </div>
                 </div>
             </div>
+          </div>
         </Container>
     )
 }
@@ -73,13 +79,21 @@ function CustomerSignup() {
 export default CustomerSignup
 
 const Container = styled.div`
-body {
-    background-color: #fafafa;
-  }
+background-container: black;
+  .hero{
+    position: fixed;
+    .background-image{
+        object-fit: cover;
+    }
+    img{
+      width: 100vw;
+      height: 100vh;
+    }
+
   .login{
-    display: flex;
-    margin: 5px;
-    justify-content: center;
+    position: absolute;
+    bottom: 3rem;
+    margin-left: 29rem;
   }
   .main_signuppage {
     display: flex;

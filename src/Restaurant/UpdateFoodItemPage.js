@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import  styled  from 'styled-components';
 
@@ -52,8 +52,16 @@ const UpdateFoodItemForm = () => {
 
   return (
     <Container>
+    <div className='hero'>
+          <img 
+              src='https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png'
+              className='background-image'
+              alt="bgImage" />
+              <div className="home">
         <div>
-            <h1 className='food_items'>Update Food Items</h1>
+        <Link className='btn_back' to={`/restaurant/${restaurantId}/foodItemListing`}>Back</Link>
+            <h1 className='food_items'>Update Food Item</h1>
+            </div>
             <form onSubmit={handleSubmit} className='table_det'>
             <div className='form_container'>
             <label>
@@ -84,6 +92,7 @@ const UpdateFoodItemForm = () => {
             </div>
             </form>
         </div>
+        </div>
     </Container>
   );
 };
@@ -91,31 +100,62 @@ const UpdateFoodItemForm = () => {
 export default UpdateFoodItemForm;
 
 const Container = styled.div`
-body {
-    background-color: #fafafa;
-  }
+.hero{
+  position: relative;
+}
+.background-image{
+  object-fit: cover;
+}
+img{
+  width: 100vw;
+  height: 100%;
+}
+.home{
+  position: absolute;
+    top: 2rem;
+    // margin-left: 7rem;
+}
+
   .food_items{
     display: flex;
-    margin: 15px;
+    margin-left: 21rem;
     font-size: 3rem;
     font-weight: bold;
-    color: #8e8e8e;
+    color: white;
     justify-content: center;
 }
-..form_container{
-    margin-top: 15px;
+.form_container{
+    margin-top: 20px;
     text-align: center;
     justify-content: center;
+  }
+  .btn_back{
+    display: flex;
+    width: 70px;
+    height: 35px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-left: 10px;
+    margin-top: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    border: 1px solid black;
+    align-items: center;
+    border-radius: 7px;
+    justify-content: center;
+    background-color: #33adff;
+    color: black;
   }
 .table_det{
     width: 470px;
-    height: 250px;
+    height: 280px;
     font-size: 1.5rem;
     margin-top: 40px;
-    margin-left: 440px;
+    margin-left: 340px;
     border: 1px solid grey;
     text-align: center;
     justify-content: center;
+    background-color: #a2f2f5;
 }
 .inp_det_1{
     width: 250px;

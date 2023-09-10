@@ -36,10 +36,17 @@ const Orders = () => {
 
   return (
     <Container>
+    <div className='hero'>
+          <img 
+              src='https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png'
+              className='background-image'
+              alt="bgImage" />
+              <div className="home">
         <div className='container'>
             <div className='add_food'>
             <Link className='btn_back' to={`/customer/${customerId}/restaurants`}>Back</Link>
             <h1 className='res_listing'>Past Orders</h1>
+            </div>
             </div>
                 <table className='table_det'>
                     <thead>
@@ -65,6 +72,7 @@ const Orders = () => {
                 </table>
                 
         </div>
+        </div>
     </Container>
   );
 };
@@ -73,12 +81,23 @@ export default Orders;
 
 
 const Container = styled.div`
+.hero{
+  position: relative;
+}
+.background-image{
+  object-fit: cover;
+}
+img{
+  width: 100vw;
+  height: 100%;
+}
+.home{
+  position: absolute;
+    top: 4rem;
+    margin-left: 7rem
+}
 .container {
-  // background: url("./images/food.jpg");
-  // background-size:contain;
-  //   background-position:top;
-  //   background: cover;
-    // background: lightgreen;
+  
   }
   .add_food{
     display: flex;
@@ -90,7 +109,7 @@ const Container = styled.div`
     font-size: 3rem;
     font-weight: bold;
     margin: auto;
-    color: #990000;
+    color: white;
     align-items: center;
     justify-content: center;
 }
@@ -99,8 +118,7 @@ const Container = styled.div`
   width: 70px;
   height: 35px;
   cursor: pointer;
-  font-size: 1.2rem;
-  margin-left: 40px;
+  font-size: 1.2rem; 
   font-weight: bold;
   text-decoration: none;
   border: 1px solid black;
@@ -113,20 +131,15 @@ const Container = styled.div`
 .table_det{
     width: 1000px;
     font-size: 1.5rem;
-    margin-top: 25px;
-    margin-left: 180px;
+    margin-top: 55px;
+    margin-left: 100px;
     border: 1px solid grey;
     text-align: center;
     justify-content: center;
 }
-.input_quantity{
-  display: flex;
-  width: 100px;
-  height: 25px;
-  margin: 2px 2px 2px 20px;
-}
+
 .head_det{
-    background-color: lightgrey;;
+    background-color: lightgrey;
 }
 .hed_deta{
     border: 1px solid black;

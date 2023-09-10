@@ -15,11 +15,13 @@ import UpdateFoodItem from './Restaurant/UpdateFoodItemPage'
 import FoodItemsListing from './Restaurant/FoodItemsListingPage'
 import RestaurantOrderList from './Restaurant/RestaurantOrderList'
 import RestaurantOrderView from './Restaurant/RestaurantOrderView'
+import MainPage from './MainPage/MainPage'
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route exact path='/' element={< MainPage />}/>
         <Route exact path='/customerSignup' element={< CustomerSignup />}/>
         <Route exact path='/login' element={< CustomerLogin />}/>
         <Route exact path='/customer/:customerId/restaurants' element={< CustomerHome />}/>

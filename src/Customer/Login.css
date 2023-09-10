@@ -1,16 +1,18 @@
-body {
-    background-color: #fafafa;
-    /* background-image: url("./images/food.jpg");
-    background-size:contain;
-    background-position:top; */
-    object-fit: cover;
-    background-size: cover;
 
+  .hero{
+    position: fixed;
+  }
+  .background-image{
+    object-fit: cover;
+  }
+  img{
+    width: 100vw;
+    height: 100vh;
   }
   .login{
-    display: flex;
-    margin: 5px;
-    justify-content: center;
+    position: absolute;
+    bottom: 6rem;
+    margin-left: 28rem;
   }
   .main_signuppage {
     display: flex;
@@ -31,8 +33,9 @@ body {
 .title_welc{
     margin-top: 35px;
     font-size: 3rem;
+    margin-bottom: 2rem;
     font-weight: bold;
-    color: #8e8e8e;
+    color: grey;
   }
   .inpgrp_signup{
     margin: 40px;

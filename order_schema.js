@@ -4,7 +4,7 @@ const Customer = require("./customer_schema")
 const Restaurant = require("./restaurant_schema")
 
 // Define the schema for the Food Item
-const cartItemSchema = new mongoose.Schema({
+const OrderSchema = new mongoose.Schema({
     customer: {
         type: mongoose.Schema.Types.ObjectId,
         ref: Customer,
@@ -37,6 +37,6 @@ const cartItemSchema = new mongoose.Schema({
 
 
 // Define the model for the Food Item
-const Cart = mongoose.model('cartitem', cartItemSchema);
+const Cart = mongoose.model('order', OrderSchema);
 
 module.exports = Cart;

@@ -18,40 +18,36 @@ function Home() {
   }, []);
 
   return (
-    <div>
-      <Link className='btn_add_restaurant' to={`/customer/${customerId}/orders`}>Past Orders</Link>
-      <h1 className="add_restaurant">Welcome </h1>
-      <p className="res_listing">Please choose your favourite food from the following restaurants</p>
-     <div>
-         <table className='table_det'>
-             <thead>
-             <tr className='head_det'>
-                 <th className='heddeta'>Name</th>
-                 <th className='heddeta'>Address</th>
-                 <th className='heddeta'>Opening Time</th>
-                 <th className='heddeta'>Closing Time</th>
-                 <th className='heddeta'>Action</th>
-             </tr>
-             </thead>
-             <tbody>
-             {restaurants.length === 0 ? (
-                      <tr>
-                        <td colSpan="5">No record found</td>
-                      </tr>
-                    ) : (
-             restaurants.map(restaurant => (
-                 <tr key={restaurant._id}>
-                 <td className='hed_deta'>{restaurant.name}</td>
-                 <td className='hed_deta'>{restaurant.address}</td>
-                 <td className='hed_deta'>{restaurant.opening_time}</td>
-                 <td className='hed_deta'>{restaurant.closing_time}</td>
-                 <td className='hed_deta'>
-                  <Link className='hed_deta_view' to={`/customer/${customerId}/restaurant/${restaurant._id}/fooditems`}>Create an order</Link></td>
-                 </tr>
-             )))}
-             </tbody>
-         </table>
+    <div className='hero'>
+          <img 
+              src='https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png'
+              className='background-image'
+              alt="bgImage" />
+      <div className="home">
+        <Link className='btn_add_restaurant' to={`/customer/${customerId}/orders`}>Past Orders</Link>
+        <h1 className="add_restaurant">Welcome </h1>
+        <p className="res_listing">Please choose your favourite food from the following restaurants</p>
+      <div>
+         
+         
+
  </div>
+ <section id="services-container">
+        <div id="services">
+        {restaurants.map(restaurant => (
+            <div class="box">
+                <img src="https://images.pexels.com/photos/8969237/pexels-photo-8969237.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" />
+                <h2 class="h-secondary center">{restaurant.name}</h2>
+                <p class="center">{restaurant.address}</p>
+                <p class="timing">{restaurant.opening_time} - {restaurant.closing_time}</p>
+                <Link className='btn-order' to={`/customer/${customerId}/restaurant/${restaurant._id}/fooditems`}>Create an order</Link>
+
+            </div>
+            ))}
+          
+        </div>
+    </section>
+      </div>
  </div>
 
     

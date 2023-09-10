@@ -76,58 +76,52 @@ const FoodItems = () => {
 
   return (
     <Container>
+    <div className='hero'>
+          <img 
+              src='https://images.pexels.com/photos/1310777/pexels-photo-1310777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+              className='background-image'
+              alt="bgImage" />
+        <div className='home'>
         <div>
             <div className='add_food'>
             <Link className='btn_back' to={`/customer/${customerId}/restaurants`}>Back</Link>
+            
+            <button className='btn_checkout'
+            onClick={() => checkout()}
+            disabled={Object.keys(cartItems).length === 0}
+            >Checkout</button>
+            <div>
             <h1 className='res_listing'>Food Items Listing</h1>
-            
-              <button className='btn_checkout'
-               onClick={() => checkout()}
-               disabled={Object.keys(cartItems).length === 0}
-               >Checkout</button>
-            
-            
             </div>
-                <table className='table_det'>
-                    <thead>
-                    <tr className='head_det'>
-                        <th className='hed_deta'>Name</th>
-                        <th className='hed_deta'>Description</th>
-                        <th className='hed_deta'>Price</th>
-                        <th className='hed_deta'>Quantity</th>
-                        <th className="hed_deta">Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {fooditems.length === 0 ? (
-                      <tr>
-                        <td colSpan="5">No record found</td>
-                      </tr>
-                    ) : (
-                    fooditems.map(fooditem => (
-                        <tr key={fooditem._id}>
-                          <td className='hed_deta'>{fooditem.name}</td>
-                          <td className='hed_deta'>{fooditem.description}</td>
-                          <td className='hed_deta'>{fooditem.price}</td>
-                          <td className='hed_deta'>
-              <input
-                className='input_quantity'
-                type='number'
-                value={quantity[fooditem._id] }
-                onChange={(e) => handleQuantityChange(fooditem._id, parseInt(e.target.value, 10))}
-              />
-            </td>
-            <td className='hed_deta'>
-              <button className='btn_addcart' onClick={() => handleAddToCart(fooditem._id)}>Add To Cart</button>
-              {isItemInCart(fooditem._id) && (
-                <button className='btn_removecart' onClick={() => handleRemoveFromCart(fooditem._id)}>Remove from Cart</button>
-              )}
-            </td>
-                        </tr>
-                    )))}
-                    </tbody>
-                </table>
+            </div>
+            </div>
+                <section id="services-container">
+                  <div id="services">
+                  {fooditems.map(fooditem => (
+                      <div class="box">
+                          <img src="https://images.pexels.com/photos/8969237/pexels-photo-8969237.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" />
+                          <h2 class="h-secondary center">{fooditem.name}</h2>
+                          <p>Description : {fooditem.description}</p>
+                          <p>Price : {fooditem.price}</p>
+                          <p className='quantity'>Quantity:<span> <input
+                          className='input_quantity'
+                          type='number'
+                          value={quantity[fooditem._id] }
+                          onChange={(e) => handleQuantityChange(fooditem._id, parseInt(e.target.value, 10))}
+                        /></span></p>
+                        
+                        <button className='btn_addcart' onClick={() => handleAddToCart(fooditem._id)}>Add To Cart</button>
+                        {isItemInCart(fooditem._id) && (
+                          <button className='btn_removecart' onClick={() => handleRemoveFromCart(fooditem._id)}>Remove from Cart</button>
+                        )}
+                        
+                      </div>
+                      ))}
+                    
+                  </div>
+                </section>
                 
+        </div>
         </div>
     </Container>
   );
@@ -137,25 +131,34 @@ export default FoodItems;
 
 
 const Container = styled.div`
-body {
-  background: url("./images/food.jpg");
-  background-size:contain;
-    background-position:top;
-    background: cover;
-    // background-color: #fafafa;
-  }
+.hero{
+  position: relative;
+}
+.background-image{
+  object-fit: cover;
+}
+img{
+  width: 100vw;
+  height: 100%;
+}
+.home{
+  position: absolute;
+  top: 3rem;
+    margin-left: 7rem
+}
+
   .add_food{
-    display: flex;
-    align-items: center;
+    // align-items: center;
     justify-content: center;
   }
   .btn_checkout{
+    position: absolute;
     display: flex;
-  margin-left: 250px;
+    margin-left: 70rem; 
+    top: 0;
   width: 100px;
   height: 33px;
   cursor: pointer;
-  float: right;
   font-weight: bold;
   border: 1px solid black;
   align-items: center;
@@ -165,13 +168,10 @@ body {
   color: black;
   }
 .res_listing{
-    display: flex;
-    margin-left: 330px;
     font-size: 3rem;
     font-weight: bold;
-    color: #990000;
-    align-items: center;
-    justify-content: center;
+    color: white;
+    
 }
 .table_det{
     width: 1000px;
@@ -179,8 +179,8 @@ body {
     margin-top: 25px;
     margin-left: 180px;
     border: 1px solid grey;
-    text-align: center;
-    justify-content: center;
+    // text-align: center;
+    // justify-content: center;
 }
 .input_quantity{
   display: flex;
@@ -188,12 +188,7 @@ body {
   height: 25px;
   margin: 2px 2px 2px 20px;
 }
-.head_det{
-    background-color: lightgrey;;
-}
-.hed_deta{
-    border: 1px solid black;
-}
+
 .btn_back{
   display: flex;
   width: 70px;
@@ -228,11 +223,10 @@ body {
   cursor: pointer;
 }
 .btn_addcart{
-  display: flex;
   width: 100px;
   height: 30px;
-  margin: 5px 5px 5px 25px;
   padding: 3px;
+  margin: 10px 80px;
   font-weight: bold;
   text-decoration: none;
   border-radius: 5px;
@@ -245,10 +239,9 @@ body {
 }
 .btn_removecart{
   display: flex;
-  width: 100px;
-  height: 35px;
-  margin: 5px 5px 5px 25px;
-  padding: 3px;
+  width: 148px;
+  height: 38px;
+  margin: auto;
   font-weight: bold;
   text-decoration: none;
   border-radius: 5px;
@@ -259,5 +252,38 @@ body {
   color: black;
   cursor: pointer;
 }
+
+#services{
+  margin: auto;
+  display: grid;
+  grid-template-columns: 400px 400px 400px;
+}
+#services .box{ 
+  width: 20rem;
+  border: 2px solid brown;
+  padding: 34px;
+  margin: auto;
+  border-radius: 28px;
+  background: #f2f2f2;
+  margin-bottom: 20px;
+}
+
+#services .box img{ 
+ height: 160px;
+ width: 250px;
+}
+
+#services .box h2{
+margin: 7px ;
+  font-family: 'Bree Serif', serif;
+
+} 
+
+.quantity{
+display: flex;
+} 
+.timing{
+margin-bottom: 12px;
+} 
 
 `;

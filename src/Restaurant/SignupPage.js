@@ -44,7 +44,13 @@ function Login() {
 
     return (
         <Container>
+        <div className='hero'>
+          <img 
+              src='https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png'
+              className='background-image'
+              alt="bgImage" />
             <div className="login">
+            <div>
                 <Link className='btn_back' to={`/restaurantListing`}>Back</Link>
                 <div className="main_signuppage">
                     <div className="rightcomponent_signuppage">
@@ -58,10 +64,11 @@ function Login() {
                             <input type="submit" className="btn_sinup" onClick={submit} />
 
                         </form>
-
+</div>
                         </div>
                 </div>
             </div>
+          </div>
         </Container>
     )
 }
@@ -69,25 +76,34 @@ function Login() {
 export default Login
 
 const Container = styled.div`
-body {
-    background-color: #fafafa;
-  }
+background-container: black;
+  .hero{
+    position: fixed;
+    .background-image{
+        object-fit: cover;
+    }
+    img{
+      width: 100vw;
+      height: 100vh;
+    }
+
   .login{
-    display: flex;
-    margin: 5px;
-    justify-content: center;
+    position: absolute;
+    bottom: 8rem;
+    margin-left: 7rem; 
   }
   .main_signuppage {
     display: flex;
     margin: 20px;
   }
   .btn_back{
+    position: absolute;
     display: flex;
     width: 70px;
     height: 35px;
     cursor: pointer;
     font-size: 1.2rem;
-    margin-right: 330px;  
+    margin-top: 30px;  
     font-weight: bold;
     text-decoration: none;
     border: 1px solid black;
@@ -99,9 +115,10 @@ body {
   }
   .rightcomponent_signuppage {
     width: 400px;
-    height: 500px;
+    height: 450px;
     border: 1px solid grey;
-    margin-right: 350px;
+    margin-top: 2rem;
+    margin-left: 22rem;
     text-align: center;
     justify-content: center;
     background-color: white;
@@ -114,6 +131,7 @@ body {
   }
   .inpgrp_signup{
     margin-top: 40px;
+    
   }
   .inp {
     width: 280px;

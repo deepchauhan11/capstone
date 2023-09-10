@@ -22,10 +22,17 @@ const RestaurantListing = () => {
 
   return (
     <Container>
+    <div className='hero'>
+    <img 
+        src='https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg?w=2000'
+        className='background-image'
+        alt="bgImage" />
+<div className="home">
         <div className='container'>
             <div className='add_restaurant'>
             <h1 className='res_listing'>Restaurant Listing</h1>
               <Link className='btn_add_restaurant' to={`/restaurantSignup`}>Add New Restaurant</Link>
+            </div>
             </div>
                 <table className='table_det'>
                     <thead>
@@ -58,6 +65,7 @@ const RestaurantListing = () => {
                     </tbody>
                 </table>
         </div>
+        </div>
     </Container>
   );
 };
@@ -66,31 +74,44 @@ export default RestaurantListing;
 
 
 const Container = styled.div`
-.container {
-    width:100vw;
-    height:110vh;
-    background-color: #ffe6cc;
-  }
+.hero{
+  position: relative;
+}
+.background-image{
+  object-fit: cover;
+}
+img{
+  width: 100vw;
+  height: 100%;
+}
+.home{
+  position: absolute;
+    top: 1rem;
+    margin-left: 7rem
+}
+
   .add_restaurant{
-    display: flex;
+    // display: flex;
     margin-top: 0px;
     align-items: center;
     justify-content: center;
   }
 .res_listing{
-  display: flex;
-  margin-left: 340px;
-  margin-top: 30px;
+  // display: flex;
+  margin-left: 180px;
+  // margin-top: 30px;
+  // margin:auto;
   font-size: 3rem;
   font-weight: bold;
-  color: #990000;
+  color: white;
   align-items: center;
   justify-content: center;
 }
 .btn_add_restaurant{
-  display: flex;
+  position: absolute;
+  // display: flex;
   font-size: 1rem;
-  margin-left: 220px;
+  margin-left: 55rem;
   width: 180px;
   height: 35px;
   text-decoration: none;
@@ -107,8 +128,8 @@ const Container = styled.div`
 .table_det{
     width: 1000px;
     font-size: 1.5rem;
-    margin-top: 35px;
-    margin-left: 190px;
+    margin-top: 55px;
+    margin-left: 100px;
     border: 1px solid grey;
     text-align: center;
     justify-content: center;

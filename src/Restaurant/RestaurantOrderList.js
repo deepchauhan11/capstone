@@ -57,10 +57,17 @@ const RestaurantOrderList = () => {
 
   return (
     <Container>
+    <div className='hero'>
+          <img 
+              src='https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png'
+              className='background-image'
+              alt="bgImage" />
+              <div className="home">
         <div className='container'>
             <div className='add_restaurant'>
             <Link className='btn_back' to={`/restaurantListing`}>Back</Link>
             <h1 className='res_listing'>Orders Listing</h1>
+            </div>
             </div>
                 <table className='table_det'>
                     <thead>
@@ -74,12 +81,17 @@ const RestaurantOrderList = () => {
                     </tr>
                     </thead>
                     <tbody>
-                    {orders.map(order => (
+                    {orders.length === 0 ? (
+                      <tr>
+                        <td colSpan="5">No record found</td>
+                      </tr>
+                    ) : (
+                    orders.map(order => (
                         <tr key={order._id}>
                         <td className='hed_deta'>{order.customer.name}</td>
                         <td className='hed_deta'>{order.OrderReferenceNumber}</td>
                         <td className='hed_deta'>{order.PlacedOn}</td>
-                        <td className='hed_deta'>{order.status}</td>
+                        <td className='hed_deta' style={{textTransform: 'capitalize'}}>{order.status}</td>
                         <td className='hed_deta_action'>
                         <Link className='btn_view' to={`/restaurant/${restaurantId}/order/${order._id}`}>View</Link>
                             <button 
@@ -95,9 +107,10 @@ const RestaurantOrderList = () => {
                             >Reject</button>
                         </td>
                         </tr>
-                    ))}
+                    )))}
                     </tbody>
                 </table>
+        </div>
         </div>
     </Container>
   );
@@ -107,11 +120,22 @@ export default RestaurantOrderList;
 
 
 const Container = styled.div`
-.container {
-  width:100vw;
-  height:110vh;
-  background-color: #ffe6cc;
+.hero{
+  position: relative;
 }
+.background-image{
+  object-fit: cover;
+}
+img{
+  width: 100vw;
+  height: 100%;
+}
+.home{
+  position: absolute;
+    top: 1rem;
+    // margin-left: 7rem;
+}
+
   .add_restaurant{
     display: flex;
     align-items: center;
@@ -119,12 +143,13 @@ const Container = styled.div`
     justify-content: center;
   }
   .btn_back{
+    position: absolute;
     display: flex;
     width: 70px;
     height: 35px;
     cursor: pointer;
     font-size: 1.2rem;
-    margin-left: 70px;
+    margin-right: 80rem;
     font-weight: bold;
     text-decoration: none;
     border: 1px solid black;
@@ -139,7 +164,7 @@ const Container = styled.div`
   font-size: 3rem;
   margin: auto;
   font-weight: bold;
-  color: #990000;
+  color: white;
   align-items: center;
   justify-content: center;
 }
@@ -147,7 +172,8 @@ const Container = styled.div`
 .table_det{
     width: 1000px;
     font-size: 1.5rem;
-    margin-left: 180px;
+    margin-left: 100px;
+    margin-top: 40px;
     border: 1px solid grey;
     text-align: center;
     justify-content: center;

@@ -35,11 +35,18 @@ const FoodItemsListing = () => {
 
   return (
     <Container>
+    <div className='hero'>
+    <img 
+        src='https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg?w=2000'
+        className='background-image'
+        alt="bgImage" />
+      <div className="home">
         <div className='container'>
             <div className='add_food'>
               <Link className='btn_back' to={`/restaurantListing`}>Back</Link>
-            <h1 className='res_listing'>Food Items Listing</h1>
               <Link className='btn_add_food' to={`/restaurant/${restaurantId}/addFoodItem`}>Add Food Item</Link>
+              <h1 className='res_listing'>Food Items Listing</h1>
+            </div>
             </div>
                 <table className='table_det'>
                     <thead>
@@ -64,15 +71,16 @@ const FoodItemsListing = () => {
                           <td className='hed_deta'>{fooditem.price}</td>
                           <td className='hed_deta'>{fooditem.quantity}</td>
                           <td className="hed_deta"> 
-                            <button className='btn_delete' onClick={() => handleDelete(fooditem._id)}>Delete</button>
-                            <Link className='btn_update' to={`/restaurant/${restaurantId}/updateFoodItem/${fooditem._id}`}>
-                              Update
-                            </Link>
+                          <Link className='btn_update' to={`/restaurant/${restaurantId}/updateFoodItem/${fooditem._id}`}>
+                          Update
+                          </Link>
+                          <button className='btn_delete' onClick={() => handleDelete(fooditem._id)}>Delete</button>
                           </td>
                         </tr>
                     )))}
                     </tbody>
                 </table>
+        </div>
         </div>
     </Container>
   );
@@ -82,22 +90,32 @@ export default FoodItemsListing;
 
 
 const Container = styled.div`
-.container {
-  width:100vw;
-  height:110vh;
-  background-color: #ffe6cc;
+.hero{
+  position: relative;
 }
+.background-image{
+  object-fit: cover;
+}
+img{
+  width: 100vw;
+  height: 100%;
+}
+.home{
+  position: absolute;
+    top: 1rem;
+    margin-left: 7rem
+}
+
   .add_food{
-    display: flex;
     align-items: center;
     justify-content: center;
   }
 .res_listing{
     display: flex;
-    margin-left: 380px;
+    margin-left: 23rem;
     font-size: 3rem;
     font-weight: bold;
-    color: #990000;
+    color: white;
     align-items: center;
     justify-content: center;
 }
@@ -118,11 +136,13 @@ const Container = styled.div`
   color: black;
 }
 .btn_back{
+  position: absolute;
   display: flex;
   width: 70px;
   height: 35px;
   cursor: pointer;
   font-weight: bold;
+  margin-right: 70rem;
   text-decoration: none;
   border: 1px solid black;
   align-items: center;
@@ -134,9 +154,8 @@ const Container = styled.div`
 .table_det{
     width: 1000px;
     font-size: 1.5rem;
-    margin-top: 25px;
-    
-    margin-left: 190px;
+    margin-top: 55px;
+    margin-left: 90px;
     border: 1px solid grey;
     text-align: center;
     justify-content: center;

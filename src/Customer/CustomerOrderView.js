@@ -19,10 +19,17 @@ const CustomerOrderView = () => {
       }, [customerId, orderId]);
   return (
     <Container>
+    <div className='hero'>
+          <img 
+              src='https://images.pexels.com/photos/1310777/pexels-photo-1310777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+              className='background-image'
+              alt="bgImage" />
+        <div className='home'>
         <div className='container'>
             <div className='add_restaurant'>
             <Link className='btn_back' to={`/customer/${customerId}/orders`}>Back</Link>
             <h1 className='res_listing'>Cart Items</h1>
+            </div>
             </div>
                 <table className='table_det'>
                     <thead>
@@ -50,6 +57,7 @@ const CustomerOrderView = () => {
                     </tbody>
                 </table>
         </div>
+        </div>
     </Container>
   );
 };
@@ -58,10 +66,20 @@ export default CustomerOrderView;
 
 
 const Container = styled.div`
-.container {
-  width:100vw;
-  height:110vh;
-  background-color: #ffe6cc;
+.hero{
+  position: relative;
+}
+.background-image{
+  object-fit: cover;
+}
+img{
+  width: 100vw;
+  height: 100%;
+}
+.home{
+  position: absolute;
+  top: 3rem;
+  margin-left: 1rem
 }
   .add_restaurant{
     display: flex;
@@ -74,17 +92,18 @@ const Container = styled.div`
   font-size: 3rem;
   font-weight: bold;
   margin: auto;
-  color: #990000;
+  color: white;
   align-items: center;
   justify-content: center;
 }
 .btn_back{
+  position: absolute;
   display: flex;
   width: 70px;
   height: 35px;
   cursor: pointer;
   font-size: 1.2rem;
-  margin: 10px;  
+  margin-right: 70rem;  
   font-weight: bold;
   text-decoration: none;
   border: 1px solid black;
@@ -97,7 +116,7 @@ const Container = styled.div`
 .table_det{
     width: 1000px;
     font-size: 1.5rem;
-    margin-top: 25px;
+    margin-top: 55px;
     margin-left: 180px;
     border: 1px solid grey;
     text-align: center;
